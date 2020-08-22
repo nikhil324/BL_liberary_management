@@ -1,0 +1,128 @@
+{% extends 'head.html' %}
+{% block body %}
+{% include "notify.html" %}
+<link rel="stylesheet" href="/static/style_1.css">
+<body ><script type="text/javascript">
+	function read_book(){
+    document.getElementById("read").style.display="block";
+}
+function withdraw_book(){
+    document.getElementById("read").style.display="none";
+    document.getElementById("withdraw").style.display="block";
+}
+function return_book(){
+    document.getElementById("read").style.display="none";
+    document.getElementById("withdraw").style.display="none";
+    document.getElementById("return").style.display="block";
+}
+function remove_book(){
+    document.getElementById("read").style.display="none";
+    document.getElementById("withdraw").style.display="none";
+    document.getElementById("return").style.display="none";
+    document.getElementById("remove").style.display="block";
+}
+ 
+</script>
+	<form class="offered">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0"></legend>
+      <div class="col-lg-6 col-sm-12">
+        <div class="form-check">
+          <input onclick="read_book()"class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+          <label class="form-check-label" for="gridRadios1">
+           DO YOU WANT TO read read BOOK?
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <input onclick="withdraw_book()"class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+          <label class="form-check-label" for="gridRadios2">
+            DO YOU WANT TO WITHDRAW BOOK?
+          </label>
+        </div>
+        <div class="form-check">
+          <input onclick="return_book()"class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" >
+          <label class="form-check-label" for="gridRadios3">
+            DO YOU WANT TO RETURN BOOK?
+          </label>
+        </div>
+          <div class="form-check">
+          <input onclick="remove_book()"class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="option4" >
+          <label class="form-check-label" for="gridRadios4">
+            DO YOU WANT TO REMOVE ACCOUNT?
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</form>
+ <form action="/read" method="post">
+  <section id="read" style="display:none;">
+  	<div class="row">
+       <div class="offered">
+  		<div class="col-lg-6 col-sm-6 ">
+        <div class="form-group row cen">
+    <label for="inputEmail3" class="col-sm-12 col-form-label" style="padding-left: 40px;">PLEASE ENTER BOOK NAME WHO DO YOU WANT TO READ:</label>
+        </div>
+    </div>
+<div class="row">
+        <div class="col-lg-3 col-sm-3" style="padding-left: 40px;">
+      <input type="input" class="form-control" id="inputEmail3" name="book1">
+  	</div>
+  	 <div class="col-lg-2 col-sm-1 " style="padding-left: 20px;">
+  	 <button type="submit" class="btn btn-primary" style=" font-size: 15px;">SUBMIT</button>
+  </div>
+</form>
+</section>
+ <form action="/withdraw" method="post">
+  <section id="withdraw"style="display:none;">
+  	<div class="row">
+       <div class="offered">
+  		<div class="col-lg-6 col-sm-6 ">
+        <div class="form-group row cen">
+    <label for="inputEmail3" class="col-sm-12 col-form-label" style="padding-left: 40px;">PLEASE ENTER BOOK NAME WHO DO YOU WANT TO TAKE:</label>
+        </div>
+    </div>
+<div class="row">
+        <div class="col-lg-3 col-sm-3" style="padding-left: 40px;">
+      <input type="input" class="form-control" id="inputEmail3" name="book2">
+  	</div>
+  	 <div class="col-lg-2 col-sm-1 " style="padding-left: 20px;">
+  	 <button type="submit" class="btn btn-primary" style=" font-size: 15px;">SUBMIT</button>
+  </div>
+</section>
+</form>
+<form action="/return" method="post">
+ <section id="return"style="display:none;">
+  	<div class="row">
+       <div class="offered">
+  		<div class="col-lg-6 col-sm-6 ">
+        <div class="form-group row cen">
+    <label for="inputEmail3" class="col-sm-12 col-form-label" style="padding-left: 40px;">PLEASE ENTER BOOK NAME WHO DO YOU WANT TO RETURN :</label>
+        </div>
+    </div>
+<div class="row">
+        <div class="col-lg-3 col-sm-3" style="padding-left: 40px;">
+      <input type="input" class="form-control" id="inputEmail3" name="book3">
+  	</div>
+  	 <div class="col-lg-2 col-sm-1 " style="padding-left: 20px;">
+  	 <button type="submit" class="btn btn-primary" style=" font-size: 15px;">SUBMIT</button>
+  </div>
+</section>
+</form>
+<form action="/remove">
+ <section id="remove"style="display:none;">
+  	<div class="row">
+       <div class="offered">
+  		<div class="col-lg-8 col-sm-8 ">
+  			<h1>YOU ARE CONFIRM TO REMOVE ACCOUNT:</h1>
+        <div class="col-lg-2 col-sm-1 " style="padding: 40px;">
+     <button type="submit" class="btn btn-primary" style=" font-size: 15px;">CONFIRM</button>
+        </div>
+    </div>
+  </div>
+</section>
+</form>
+</body>
+{% endblock %}
+
